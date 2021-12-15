@@ -1,9 +1,9 @@
-import React from 'react';
-import {render, screen} from '@testing-library/react';
+import React from "react";
+import { render, screen } from "@testing-library/react";
 import Home from "./Home";
 
-test('renders learn react link', () => {
-    render(<Home/>);
-    const linkElement = screen.getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
+it("should render successfully with Recipes header", () => {
+  render(<Home />);
+  const recipesHeader = screen.getByText(/Recipes/i);
+  expect(recipesHeader).toBeInTheDocument();
 });
