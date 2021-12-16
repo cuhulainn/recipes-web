@@ -7,22 +7,30 @@ import {
   NavbarToggler,
   NavItem,
   NavLink,
+  NavbarText,
 } from "reactstrap";
 
 const MyNavbar = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
   return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Connor'sRecipes</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+    <div style={{ paddingBottom: "4rem" }}>
+      <Navbar
+        color="info"
+        dark
+        expand="md"
+        fixed="top"
+        style={{ paddingLeft: "4vw", paddingRight: "4vw" }}
+      >
+        <NavbarBrand href="/">cook this, not that!</NavbarBrand>
+        <NavbarToggler onClick={() => setIsNavCollapsed(!isNavCollapsed)} />
+        <Collapse isOpen={!isNavCollapsed} navbar>
+          <Nav className="me-auto" navbar>
             <NavItem>
               <NavLink href="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/recipes">Recipe List</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
