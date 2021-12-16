@@ -7,7 +7,10 @@ const Home = () => {
   return (
     <React.Fragment>
       <Container>
-        <MyNavbar />
+        <button>Show me a random recipe!</button>
+        <button>Show me all the recipes!</button>
+        <button>I want to contribute a new recipe!</button>
+        <button>I want to update a recipe!</button>
       </Container>
     </React.Fragment>
   );
