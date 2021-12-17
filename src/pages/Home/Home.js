@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.css";
-import MyNavbar from "../../components/MyNavbar";
 import { Container } from "reactstrap";
 
 const Home = () => {

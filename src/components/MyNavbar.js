@@ -7,19 +7,17 @@ import {
   NavbarToggler,
   NavItem,
   NavLink,
-  NavbarText,
 } from "reactstrap";
 
-const MyNavbar = (props) => {
+const MyNavbar = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
   return (
-    <div style={{ paddingBottom: "4rem" }}>
+    <div style={{ paddingBottom: "3rem" }}>
       <Navbar
         color="info"
         dark
         expand="md"
-        fixed="top"
         style={{ paddingLeft: "4vw", paddingRight: "4vw" }}
       >
         <NavbarBrand href="/">cook this, not that!</NavbarBrand>
