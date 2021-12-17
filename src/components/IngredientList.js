@@ -1,14 +1,15 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 
 const IngredientList = ({ ingredients }) => {
   return (
     <Container>
       <Row>
         <ul>
-          {ingredients.map(({ name }) => (
+          {ingredients.map(({ name, uuid }) => (
             //TODO: regex out text after comma in name
-            <li>{name}</li>
+            // make text smaller and in columns, limit #
+            <li key={uuid}>{name}</li>
           ))}
         </ul>
       </Row>

@@ -4,6 +4,6 @@ import Home from "./Home";
 
 it("should render successfully with page header", () => {
   render(<Home />);
-  const recipesHeader = screen.getByText(/cook this, not that!/i);
+  const recipesHeader = screen.getByText(/Show me all the recipes!/i);
   expect(recipesHeader).toBeInTheDocument();
 });
