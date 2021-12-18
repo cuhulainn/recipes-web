@@ -2,8 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import Home from "./Home";
 
-it("should render successfully with page header", () => {
+it("should display a button to view all recipes", () => {
   render(<Home />);
-  const recipesHeader = screen.getByText(/Show me all the recipes!/i);
-  expect(recipesHeader).toBeInTheDocument();
+  screen.getByText(/Show me all the recipes!/i);
 });
