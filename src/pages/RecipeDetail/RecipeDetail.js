@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Card, CardTitle } from "reactstrap";
+import IngredientDetailList from "../../components/IngredientDetailList";
 import "./RecipeDetail.css";
 
-const baseImgUrl = "http://localhost:3001";
+const baseUrl = "http://localhost:3001";
+const recipesUrl = `${baseUrl}/recipes`;
 
 const RecipeDetail = ({ id, recipes }) => {
   const [recipe, setRecipe] = useState();
@@ -13,7 +15,7 @@ const RecipeDetail = ({ id, recipes }) => {
       setRecipe(recipes.filter((recipe) => recipe.uuid === id)[0]);
       setIsLoading(false);
     } else {
-      fetch(`http://localhost:3001/recipes/`)
+      fetch(recipesUrl)
         .then((response) => {
           if (response.ok) {
             return response.json();
@@ -43,19 +45,17 @@ const RecipeDetail = ({ id, recipes }) => {
         </Col>
       </Row>
       <Row>
-        <Col xs="12" md="8">
-          <img
-            src={`${baseImgUrl}${recipe.images.full}`}
-            alt={recipe.title}
-            width="100%"
-          />
+        <Col xs="12" md="10">
+          <img src={`${baseUrl}${recipe.images.full}`} alt={recipe.title} width="100%" />
         </Col>
-        <Col xs="12" md="4">
+        <Col xs="12" md="2" className="">
           <Card>
-            <CardTitle tag="h4">Prep Info</CardTitle>
+            <CardTitle tag="h4">
+              <i className="bi bi-stopwatch"></i> Prep Info
+            </CardTitle>
+
             <p className="fs-5">
-              <strong>Total: </strong>{" "}
-              {`${recipe.cookTime + recipe.prepTime} mins`}
+              <strong>Total: </strong> {`${recipe.cookTime + recipe.prepTime} mins`}
             </p>
             <div className="indent">
               <p>
@@ -73,20 +73,15 @@ const RecipeDetail = ({ id, recipes }) => {
       </Row>
       <Row xs="1">
         <Col className="pt-5">
-          <h2>Ingredients</h2>
-          <ul>
-            {recipe.ingredients.map(({ uuid, amount, measurement, name }) => (
-              <li key={uuid}>{`${amount} ${measurement} ${name}`}</li>
-            ))}
-          </ul>
+          <IngredientDetailList ingredients={recipe.ingredients} />
         </Col>
       </Row>
       <Row xs="1">
-        <Col className="pt-5">
+        <Col className="pt-5 pb-5">
           <h2>Directions</h2>
-          <ol>
+          <ol className="fs-5 ms-3">
             {recipe.directions.map(({ instructions, optional }) => (
-              <li key={instructions}>
+              <li style={{ lineHeight: "3rem" }} key={instructions}>
                 <em>{optional ? "(Optional) " : ""}</em> {instructions}
               </li>
             ))}

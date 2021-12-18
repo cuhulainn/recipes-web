@@ -1,14 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Card,
-  CardBody,
-  CardImg,
-  CardSubtitle,
-  CardText,
-  CardTitle,
-} from "reactstrap";
+import { Button, Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle } from "reactstrap";
 import IngredientList from "./IngredientList";
 
 const RecipeListCard = ({ uuid, title, description, images, ingredients }) => {
@@ -16,12 +8,7 @@ const RecipeListCard = ({ uuid, title, description, images, ingredients }) => {
   const collapseId = `x${uuid}`; //for Collapse to not be angry id must start with alpha
   return (
     <Card>
-      <CardImg
-        alt={description}
-        src={`${baseImgUrl}${images.medium}`}
-        top
-        width="100%"
-      />
+      <CardImg alt={description} src={`${baseImgUrl}${images.medium}`} top />
       <CardBody>
         <CardTitle tag="h5">{title}</CardTitle>
         <CardSubtitle className="mb-2 text-muted" tag="h6">
