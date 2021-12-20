@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styles from "./IngredientDetailList.module.scss";
 
 const baseUrl = "http://localhost:3001";
 const specialsUrl = `${baseUrl}/specials`;
@@ -38,12 +39,13 @@ const IngredientDetailList = ({ ingredients }) => {
 
   return (
     <>
-      <h2>Ingredients</h2>
+      <h2 className={styles.ingredientsHeaderText}>Ingredients</h2>
+      <hr />
       {ingredients.map(({ uuid, amount, measurement, name }) => {
         const ingredientSpecials = specials.filter((special) => special.ingredientId === uuid);
         if (ingredientSpecials.length > 0) {
           return (
-            <div key={uuid}>
+            <div key={uuid} style={{ marginBottom: "1rem" }}>
               <div className="form-check fs-5 ms-3">
                 <input className="form-check-input" type="checkbox" value={name} id={uuid} />
                 <label className="form-check-label" htmlFor="flexCheckDefault">
@@ -65,7 +67,7 @@ const IngredientDetailList = ({ ingredients }) => {
           );
         } else {
           return (
-            <div className="form-check fs-5 ms-3" key={uuid}>
+            <div className="form-check fs-5 ms-3" key={uuid} style={{ marginBottom: "1rem" }}>
               <input className="form-check-input" type="checkbox" value={name} id={uuid} />
               <label className="form-check-label" htmlFor="flexCheckDefault">
                 {`${amount === null ? "" : amount} ${measurement} ${name}`}

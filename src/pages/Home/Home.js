@@ -1,17 +1,41 @@
 import React from "react";
-import "./Home.css";
-import { Container } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
+import { Link } from "react-router-dom";
+import styles from "./Home.module.scss";
 
 const Home = () => {
   return (
-    <React.Fragment>
-      <Container>
-        <button>Show me a random recipe!</button>
-        <button>Show me all the recipes!</button>
-        <button>I want to contribute a new recipe!</button>
-        <button>I want to update a recipe!</button>
+    <div className={styles.home}>
+      <Container style={{ height: "100vh" }}>
+        <Row style={{ height: "100%" }}>
+          <Col sm="6" xs="12">
+            <div className={styles.buttonContainer}>
+              <div>
+                <Link to="/recipes">
+                  <Button fullWidth className={styles.homePageButton}>
+                    <h1 className="display-6">check out all our recipes</h1>
+                  </Button>
+                </Link>
+              </div>
+              <div>
+                <Link to="/">
+                  <Button className={styles.homePageButton}>
+                    <h1 className="display-6">add your own flavor</h1>
+                  </Button>
+                </Link>
+              </div>
+              <div>
+                <Link to="/">
+                  <Button className={styles.homePageButton}>
+                    <h1 className="display-6">improve a recipe</h1>
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Col>
+        </Row>
       </Container>
-    </React.Fragment>
+    </div>
   );
 };
 

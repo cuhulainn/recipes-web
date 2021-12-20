@@ -1,0 +1,36 @@
+@import "../styles/colors.scss";
+
+.imgContainer {
+  overflow: hidden;
+  position: relative;
+  height: 250px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .cookThisButton {
+    background-color: $red;
+    color: $white;
+    &:hover {
+      background-color: $blue;
+    }
+    &:focus {
+      background-color: $white;
+    }
+  }
+
+  .ingredientsButton {
+    background-color: $white;
+    color: $red;
+    &:hover {
+      background-color: $blue;
+    }
+    &:focus {
+      background-color: $white;
+      color: $red;
+    }
+  }
+}

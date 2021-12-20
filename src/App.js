@@ -4,16 +4,24 @@ import Home from "./pages/Home/Home";
 import RecipeDetail from "./pages/RecipeDetail/RecipeDetail";
 import Recipes from "./pages/Recipes/Recipes";
 import MyNavbar from "./components/MyNavbar";
+import "./styles/main.scss";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
+
+  let getRecipeData = (recipes) => {
+    setRecipes(recipes);
+  };
 
   return (
     <React.StrictMode>
       <MyNavbar />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/recipes" render={() => <Recipes recipes={recipes} setRecipes={setRecipes} />} />
+        <Route exact path="/" render={() => <Home recipeIds={recipes.map((recipe) => recipe.uuid)} />} />
+        <Route
+          path="/recipes"
+          render={() => <Recipes recipes={recipes} setRecipes={setRecipes} getRecipeData={getRecipeData} />}
+        />
         <Route
           exact
           path="/recipe/:uuid"

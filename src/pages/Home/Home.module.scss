@@ -1,0 +1,48 @@
+@import "../../styles/colors.scss";
+
+.home {
+  /* Location of the image */
+  background-image: url("../../images/pexels-olya-kobruseva-6507004.jpg");
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  /* Background image doesn’t tile */
+  background-repeat: no-repeat;
+  /* Background image is fixed in the viewport so that it doesn’t move when the content’s height is greater than the image’s height */
+  background-attachment: fixed;
+  /* This is what makes the background image rescale based on the container’s size */
+  background-size: cover;
+  /* Set a background color that will be displayed while the background image is loading */
+  background-color: #464646;
+  min-height: calc(100vh - 3rem);
+  margin-top: 3rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .home {
+    background-image: url("../../images/pexels-anna-nekrashevich-7214925.jpg");
+  }
+  div div.buttonContainer a .homePageButton {
+    min-height: 4rem;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 75%;
+  margin: 2rem;
+
+  .homePageButton {
+    background-color: $red;
+    width: 100%;
+    min-height: 8rem;
+    border-radius: 12px;
+    &:hover {
+      background-color: $blue;
+    }
+    &:focus {
+      background-color: $tan;
+    }
+  }
+}

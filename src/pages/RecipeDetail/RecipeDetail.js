@@ -37,7 +37,7 @@ const RecipeDetail = ({ id, recipes }) => {
   }
 
   return (
-    <Container>
+    <Container style={{ marginTop: "5rem" }}>
       <Row xs="1">
         <Col>
           <h1 className="display-3">{recipe.title}</h1>
@@ -45,12 +45,12 @@ const RecipeDetail = ({ id, recipes }) => {
         </Col>
       </Row>
       <Row>
-        <Col xs="12" md="10">
+        <Col xs="12" lg="10" style={{ paddingBottom: "3rem" }}>
           <img src={`${baseUrl}${recipe.images.full}`} alt={recipe.title} width="100%" />
         </Col>
-        <Col xs="12" md="2" className="">
-          <Card>
-            <CardTitle tag="h4">
+        <Col xs="12" lg="2">
+          <Card style={{ padding: "1rem" }}>
+            <CardTitle tag="h4" style={{ textAlign: "center", borderBottom: "1px solid black" }}>
               <i className="bi bi-stopwatch"></i> Prep Info
             </CardTitle>
 
@@ -78,10 +78,11 @@ const RecipeDetail = ({ id, recipes }) => {
       </Row>
       <Row xs="1">
         <Col className="pt-5 pb-5">
-          <h2>Directions</h2>
+          <h2 style={{ margin: "0" }}>Directions</h2>
+          <hr />
           <ol className="fs-5 ms-3">
             {recipe.directions.map(({ instructions, optional }) => (
-              <li style={{ lineHeight: "3rem" }} key={instructions}>
+              <li style={{ marginBottom: "1.5rem" }} key={instructions}>
                 <em>{optional ? "(Optional) " : ""}</em> {instructions}
               </li>
             ))}
