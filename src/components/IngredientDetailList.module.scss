@@ -1,0 +1,13 @@
+@import "../styles/colors";
+
+.ingredientsHeaderText {
+  color: $blue;
+  margin: "0";
+}
+
+div hr {
+  margin-bottom: 3rem;
+  padding-bottom: 0.5rem;
+  color: $red;
+  border-radius: 33%;
+}
