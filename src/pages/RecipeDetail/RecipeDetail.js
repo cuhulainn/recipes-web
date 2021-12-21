@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Card, CardTitle } from "reactstrap";
 import IngredientDetailList from "../../components/IngredientDetailList";
 import "./RecipeDetail.css";
+import defaultImg from "../../images/generic-large.jpg";
 
 const baseUrl = "http://localhost:3001";
 const recipesUrl = `${baseUrl}/recipes`;
@@ -46,7 +47,7 @@ const RecipeDetail = ({ id, recipes }) => {
       </Row>
       <Row>
         <Col xs="12" lg="10" style={{ paddingBottom: "3rem" }}>
-          <img src={`${baseUrl}${recipe.images.full}`} alt={recipe.title} width="100%" />
+          <img src={recipe.images ? `${baseUrl}${recipe.images.full}` : defaultImg} alt={recipe.title} width="100%" />
         </Col>
         <Col xs="12" lg="2">
           <Card style={{ padding: "1rem" }}>

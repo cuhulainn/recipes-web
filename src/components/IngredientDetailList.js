@@ -56,7 +56,7 @@ const IngredientDetailList = ({ ingredients }) => {
                 <div className="fs-5 ms-5" key={special.uuid}>
                   <p className="m-0 ">
                     <i className="bi bi-arrow-return-right"></i>
-                    <span className="text-capitalize text-info">
+                    <span className={styles.specialLabel}>
                       <strong>{` ${specialTypeSwitch(special.type)} `}</strong>
                     </span>
                     <span>{`${special.title}: ${special.text}`}</span>
