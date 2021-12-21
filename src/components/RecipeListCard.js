@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Card, CardBody, CardImg, CardSubtitle, CardTitle } from "reactstrap";
 import IngredientList from "./IngredientList";
 import styles from "./RecipeListCard.module.scss";
+import defaultImg from "../images/generic-small.jpg";
 
 const RecipeListCard = ({ uuid, title, description, images, ingredients }) => {
   const baseImgUrl = "http://localhost:3001";
@@ -12,7 +13,7 @@ const RecipeListCard = ({ uuid, title, description, images, ingredients }) => {
       <div className={styles.imgContainer}>
         <CardImg
           alt={description}
-          src={`${baseImgUrl}${images.medium}`}
+          src={images ? `${baseImgUrl}${images.medium}` : defaultImg}
           top
           style={{
             position: "absolute",
@@ -20,7 +21,7 @@ const RecipeListCard = ({ uuid, title, description, images, ingredients }) => {
             height: "100%",
             left: "50%",
             top: "50%",
-            webkitTransform: "translate(-50%,-50%)",
+            WebkitTransform: "translate(-50%,-50%)",
             msTransform: "translate(-50%,-50%)",
             transform: "translate(-50%,-50%)",
           }}

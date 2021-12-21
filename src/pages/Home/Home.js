@@ -12,24 +12,23 @@ const Home = () => {
             <div className={styles.buttonContainer}>
               <div>
                 <Link to="/recipes">
-                  <Button fullWidth className={styles.homePageButton}>
+                  <Button className={styles.homePageButton}>
                     <h1 className="display-6">check out all our recipes</h1>
                   </Button>
                 </Link>
               </div>
               <div>
-                <Link to="/">
+                <Link to="/addrecipe">
                   <Button className={styles.homePageButton}>
                     <h1 className="display-6">add your own flavor</h1>
                   </Button>
                 </Link>
               </div>
               <div>
-                <Link to="/">
-                  <Button className={styles.homePageButton}>
-                    <h1 className="display-6">improve a recipe</h1>
-                  </Button>
-                </Link>
+                <Button className={styles.homePageButton} disabled>
+                  <h1 className="display-6">improve a recipe</h1>
+                  <small>(coming soon!)</small>
+                </Button>
               </div>
             </div>
           </Col>
