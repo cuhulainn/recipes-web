@@ -1,4 +1,62 @@
+@import "../../styles/colors";
+
+.ingredientsContainer {
+  h3 {
+    margin-top: 10vh;
+  }
+}
+.directionsContainer {
+  h3 {
+    margin-top: 10vh;
+  }
+}
+
 .formRow {
   margin-top: 1vh;
   margin-bottom: 1vh;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 2vh 1vh 4vh 1vh;
+  .addButton {
+    background-color: $green;
+    color: black;
+    &:hover {
+      background-color: $blue;
+      color: $white;
+    }
+    &:focus {
+      background-color: $green;
+    }
+  }
+  .removeButton {
+    background-color: $red;
+    color: $white;
+    &:hover {
+      background-color: $blue;
+    }
+    &:focus {
+      background-color: $red;
+    }
+  }
+}
+
+.submitButtonContainer {
+  margin: 2vh 1vh 4vh 1vh;
+
+  .submitButton {
+    width: 100%;
+    min-height: 4rem;
+    background-color: $green;
+    color: black;
+    &:hover {
+      background-color: $blue;
+      color: $white;
+    }
+    &:focus {
+      background-color: $green;
+    }
+  }
 }

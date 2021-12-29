@@ -12,10 +12,13 @@ const MyNavbar = () => {
       <Collapse isOpen={!isNavCollapsed} navbar>
         <Nav className="me-auto" navbar>
           <NavItem>
-            <NavLink href="/">Home</NavLink>
+            <NavLink href="/">home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/recipes">Recipe List</NavLink>
+            <NavLink href="/recipes">recipe list</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/addrecipe">add a recipe</NavLink>
           </NavItem>
         </Nav>
       </Collapse>

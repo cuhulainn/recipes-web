@@ -16,8 +16,18 @@ const AddRecipe = () => {
     setingredientInputArr([...ingredientInputArr, ingredientInputArr.length]);
   };
 
+  const removeIngredientInput = () => {
+    ingredientInputArr.pop();
+    setingredientInputArr([...ingredientInputArr]);
+  };
+
   const addInstructionInput = () => {
     setInstructionInputArr([...instructionInputArr, instructionInputArr.length]);
+  };
+
+  const removeInstructionInput = () => {
+    instructionInputArr.pop();
+    setInstructionInputArr([...ingredientInputArr]);
   };
 
   const createNewRecipe = (inputs) => {
@@ -83,7 +93,7 @@ const AddRecipe = () => {
       <h4 style={{ marginTop: "5rem", marginLeft: "4vh" }}>add your recipe to our collection!</h4>
       <Row>
         <Col xl={6} md={9} sm={12}>
-          <Form style={{ margin: "4vh" }}>
+          <Form id="addRecipeForm" style={{ margin: "4vh" }}>
             <FormGroup row className={styles.formRow}>
               <Label for="title" sm={3}>
                 title
@@ -124,19 +134,41 @@ const AddRecipe = () => {
                 <Input id="cookTime" name="cookTime" placeholder="20" />
               </Col>
             </FormGroup>
-            <h3>Ingredients</h3>
-            {ingredientInputArr.map((id) => (
-              <IngredientInput key={`ing${id}`} inputId={id} />
-            ))}
-            <Button onClick={addIngredientInput}>add another ingredient</Button>
-            <h3>Directions</h3>
-            {instructionInputArr.map((id) => (
-              <InstructionInput key={`instr${id}`} inputId={id} />
-            ))}
-            <Button onClick={addInstructionInput}>add another instruction</Button>
+            <div className={styles.ingredientsContainer}>
+              <h3>Ingredients</h3>
+              {ingredientInputArr.map((id) => (
+                <IngredientInput key={`ing${id}`} inputId={id} />
+              ))}
+              <div className={styles.buttonContainer}>
+                <Button className={styles.addButton} onClick={addIngredientInput}>
+                  add ingredient
+                </Button>
+                <Button className={styles.removeButton} onClick={removeIngredientInput}>
+                  delete ingredient
+                </Button>
+              </div>
+            </div>
+            <div className={styles.directionsContainer}>
+              <h3>Directions</h3>
+              {instructionInputArr.map((id) => (
+                <InstructionInput key={`instr${id}`} inputId={id} />
+              ))}
+              <div className={styles.buttonContainer}>
+                <Button className={styles.addButton} onClick={addInstructionInput}>
+                  add step
+                </Button>
+                <Button className={styles.removeButton} onClick={addInstructionInput}>
+                  delete step
+                </Button>
+              </div>
+            </div>
             <FormGroup row className={styles.formRow}>
               <Col>
-                <Button onClick={handleSubmit}>Submit</Button>
+                <div className={styles.submitButtonContainer}>
+                  <Button className={styles.submitButton} onClick={handleSubmit}>
+                    add my recipe
+                  </Button>
+                </div>
               </Col>
             </FormGroup>
           </Form>
