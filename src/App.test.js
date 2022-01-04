@@ -1,13 +1,10 @@
 import App from "./App";
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
 describe("App component tests", () => {
-  it("should render the app without breaking", () => {
-    render(
-      <MemoryRouter>
-        <App />
-      </MemoryRouter>
-    );
+  it("should render the home page initially", () => {
+    render(<App />);
+    screen.getByText("improve a recipe");
   });
 });

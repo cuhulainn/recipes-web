@@ -1,16 +1,13 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Home from "./Home";
+import AddRecipe from "./AddRecipe";
 import { MemoryRouter } from "react-router-dom";
-import mockData from "../../mockData";
-
-const mockRecipeIds = mockData.recipes.map((recipe) => recipe.uuid);
 
 it("should display a button to view all recipes", () => {
   render(
     <MemoryRouter>
-      <Home recipeIds={mockRecipeIds} />
+      <AddRecipe />
     </MemoryRouter>
   );
-  screen.getByText(/check out all our recipes/i);
+  screen.getByText(/add your recipe to our collection!/i);
 });

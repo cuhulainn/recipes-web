@@ -11,6 +11,6 @@ describe("Navbar test", () => {
     render(<MyNavbar />);
     const collapseButton = screen.getByRole("button");
     fireEvent.click(collapseButton);
-    screen.getByText("Recipe List");
+    screen.getByText("recipe list");
   });
 });

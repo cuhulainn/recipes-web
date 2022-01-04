@@ -3,7 +3,11 @@ import { Container, Row, Col, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.scss";
 
-const Home = () => {
+const Home = ({ recipeIds }) => {
+  const randomRecipeId = (recipeIds) => {
+    const index = Math.floor(Math.random() * recipeIds.length);
+    return recipeIds[index];
+  };
   return (
     <div className={styles.home}>
       <Container style={{ height: "100vh" }}>
@@ -14,6 +18,13 @@ const Home = () => {
                 <Link to="/recipes">
                   <Button className={styles.homePageButton}>
                     <h1 className="display-6">check out all our recipes</h1>
+                  </Button>
+                </Link>
+              </div>
+              <div>
+                <Link to={`/recipe/${randomRecipeId(recipeIds)}`}>
+                  <Button className={styles.homePageButton}>
+                    <h1 className="display-6">i'm feeling lucky</h1>
                   </Button>
                 </Link>
               </div>
